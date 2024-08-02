@@ -1969,7 +1969,6 @@ class PlayState extends MusicBeatState
 		if (healthBar.bounds.max != null && health > healthBar.bounds.max)
 			health = healthBar.bounds.max;
 
-		updateIconsScale(elapsed);
 		updateIconsPosition();
 
 		if (startedCountdown && !paused)
@@ -2198,9 +2197,6 @@ class PlayState extends MusicBeatState
 		        + " (Max: "
 		        + maxNPS
 		        + ")";
-		        
-		        if (ClientPrefs.data.playOpponent ? !cpuControlled_opponent : !cpuControlled)
-		        {
 		        scoreTxt.text += " | "
                 		     + "Score: " + songScore
                 		     + " | Misses: " + songMisses
@@ -2213,7 +2209,6 @@ class PlayState extends MusicBeatState
                 		     else {
                 		         scoreTxt.text += '(' + ratingFC + ') ' + ratingName;
                 		     }            
-                }
     }
 
 	// Health icon updaters
@@ -3875,9 +3870,6 @@ class PlayState extends MusicBeatState
 
 		if (generatedMusic)
 			notes.sort(FlxSort.byY, ClientPrefs.data.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
-
-		iconP1.scale.set(1.3, 1.3);
-		iconP2.scale.set(1.3, 1.3);
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
